@@ -286,4 +286,8 @@ class IceCreamController extends Controller
             ]);
     }
 
+    public function orderReroute($basket_id) {
+        return redirect('/');
+    }
+
 }

@@ -28,6 +28,7 @@ Route::delete('/cart/{item_id}/delete', 'IceCreamController@delete');
 Route::put('/cart/{item_id}/update', 'IceCreamController@update');
 Route::get('/edit/{item_id}','IceCreamController@edit');
 
-# Place Order page and route to place the order
+# Place Order page and placing the order
 Route::get('/viewOrder/{basket_id}', 'IceCreamController@viewOrder');
 Route::post('/placeOrder/{basket_id}', 'IceCreamController@placeOrder');
+Route::get('/placeOrder/{basket_id}', 'IceCreamController@orderReroute');
