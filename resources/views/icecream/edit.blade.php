@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    View your Cart
+    Edit Sundae
 @endsection
 
 @push('head')

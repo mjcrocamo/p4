@@ -22,12 +22,12 @@ Route::get('/cart', 'IceCreamController@showCart');
 Route::post('/cart', 'IceCreamController@addCart');
 
 # DELETE item from cart
-Route::delete('/cart/{id}/delete', 'IceCreamController@delete');
+Route::delete('/cart/{item_id}/delete', 'IceCreamController@delete');
 
 # Edit item in cart
-Route::put('/cart/{id}/update', 'IceCreamController@update');
-Route::get('/edit/{id}','IceCreamController@edit');
+Route::put('/cart/{item_id}/update', 'IceCreamController@update');
+Route::get('/edit/{item_id}','IceCreamController@edit');
 
 # Place Order page and route to place the order
-Route::get('/viewOrder', 'IceCreamController@viewOrder');
-Route::post('/placeOrder', 'IceCreamController@placeOrder');
+Route::get('/viewOrder/{basket_id}', 'IceCreamController@viewOrder');
+Route::post('/placeOrder/{basket_id}', 'IceCreamController@placeOrder');

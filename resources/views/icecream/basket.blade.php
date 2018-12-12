@@ -16,15 +16,15 @@
 
             @foreach($basket_items as $basket_item)
                     @foreach($basket_item->flavors as $flavor)
-                        <li>{{ $flavor["flavor"] }}</li>
+                        <li>{{ $flavor->flavor }}</li>
                     @endforeach
                     @foreach($basket_item->flavors as $flavor)
                             <li><img class="flavorPic" src={{ $flavor["picture_url"] }}/></li>
                         @endforeach
                     @foreach($basket_item->toppings as $topping)
-                        <li>{{ $topping["topping"] }}</li>
+                        <li>{{ $topping->topping }}</li>
                     @endforeach
-                    <li>{{ $basket_item->size["size"] }}</li>
+                    <li>{{ $basket_item->size->size }}</li>
                         <li>{{ $basket_item->quantity }}</li>
                         <div class="Updatebutton">
                             <form method="GET" action="/edit/{{ $basket_item->id }}">
@@ -42,9 +42,13 @@
         </ul>
     </div>
         <div>
-            <form method="GET" action="/edit/{{ $basket_item->id }}">
-                <input type='submit' value='Continue' class='btn btn-primary'>
+            <form method="GET" action="/viewOrder/{{ $basket_id}}">
+                <input type='submit' value='Check Out' class='btn btn-primary'>
+            </form>
+            <form method="GET" action="/show">
+                <input type='submit' value='Continue Shopping' class='btn btn-primary'>
             </form>
         </div>
+
     </section>
 @endsection

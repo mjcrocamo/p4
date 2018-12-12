@@ -16,15 +16,17 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('order_number');
             $table->string('session_id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address_1');
-            $table->string('address_2');
+            $table->string('address_2')->nullable();
+            $table->string('city');
             $table->string('state');
             $table->string('country');
-            $table->integer('zip_code');
-            $table->integer('card_number');
+            $table->string('zip_code');
+            $table->char('card_number',20);
             $table->string('card_exp_date');
             $table->integer('cv_code');
         });

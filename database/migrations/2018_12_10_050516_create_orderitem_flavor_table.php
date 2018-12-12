@@ -13,7 +13,7 @@ class CreateOrderitemFlavorTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderitem_flavor', function (Blueprint $table) {
+        Schema::create('flavor_orderitem', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
@@ -32,6 +32,6 @@ class CreateOrderitemFlavorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderitem_flavor');
+        Schema::dropIfExists('flavor_orderitem');
     }
 }

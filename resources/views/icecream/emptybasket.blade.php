@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    View your Cart
+@endsection
+
 @push('head')
 
 @endpush
