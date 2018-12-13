@@ -31,4 +31,5 @@ Route::get('/edit/{item_id}','IceCreamController@edit');
 # Place Order page and placing the order
 Route::get('/viewOrder/{basket_id}', 'IceCreamController@viewOrder');
 Route::post('/placeOrder/{basket_id}', 'IceCreamController@placeOrder');
+
 Route::get('/placeOrder/{basket_id}', 'IceCreamController@orderReroute');

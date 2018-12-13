@@ -20,15 +20,22 @@ class CreateOrdersTable extends Migration
             $table->string('session_id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('address_1');
-            $table->string('address_2')->nullable();
-            $table->string('city');
-            $table->string('state');
-            $table->string('country');
-            $table->string('zip_code');
+            $table->string('ship_address_1');
+            $table->string('ship_address_2')->nullable();
+            $table->string('ship_city');
+            $table->string('ship_state');
+            $table->string('ship_country');
+            $table->string('ship_zip_code');
+            $table->string('bill_address_1');
+            $table->string('bill_address_2')->nullable();
+            $table->string('bill_city');
+            $table->string('bill_state');
+            $table->string('bill_country');
+            $table->string('bill_zip_code');
+            $table->string('email');
             $table->char('card_number',20);
             $table->string('card_exp_date');
-            $table->integer('cv_code');
+            $table->char('cv_code',5);
         });
     }
 

@@ -196,8 +196,9 @@ class IceCreamController extends Controller
         $session_id = $request->session()->getId();
 
         $check_basket = Basket::checkBasket($session_id);
+        $basket = Basket::getBasket($session_id);
 
-        if (!$check_basket) {
+        if (!$check_basket or $basket[0]["id"] != $basket_id) {
             return redirect('/');
         } else {
             $basket_items = Basketitem::getBasketItems($basket_id);
@@ -214,19 +215,25 @@ class IceCreamController extends Controller
      */
     public function placeOrder(Request $request, $basket_id)
     {
-        $this->validate($request, [
-            'firstName' => 'required|alpha',
-            'lastName' => 'required|alpha',
-            'email'=> 'required|email',
-            'address1' => 'required',
-            'address1' => 'nullable',
-            'city' => 'required|alpha',
-            'state' => 'required|size:2|alpha',
-            'zipCode' => 'required|digits:5|numeric',
-            'cardNumber' => 'required|digits:16|numeric',
-            'country' => 'required|between:2,3|alpha',
-            'CVV' => 'required|digits:3|numeric',
-            'expDate' => 'required|size:5'
+       $this->validate($request, [
+           'firstName' => 'required|alpha',
+           'lastName' => 'required|alpha',
+           'email'=> 'required|email',
+           'shipAddress1' => 'required',
+           'shipAddress2' => 'nullable',
+           'shipCity' => 'required|alpha',
+           'shipState' => 'required|size:2|alpha',
+           'shipZipCode' => 'required|digits:5|numeric',
+           'shipCountry' => 'required|size:2',
+           'billAddress1' => 'required',
+           'billAddress2' => 'nullable',
+           'billCity' => 'required|alpha',
+           'billState' => 'required|size:2|alpha',
+           'billZipCode' => 'required|digits:5|numeric',
+           'billCountry' => 'required|size:2',
+           'cardNumber' => 'required|digits:16|numeric',
+           'CVV' => 'required|digits:3|numeric',
+           'expDate' => 'required|size:5'
         ]);
 
         $session_id = $request->session()->getId();
@@ -239,12 +246,19 @@ class IceCreamController extends Controller
         $order->session_id = $session_id;
         $order->first_name = $request->firstName;
         $order->last_name = $request->lastName;
-        $order->address_1 = $request->address1;
-        $order->address_2 = $request->address2;
-        $order->city = $request->city;
-        $order->state = $request->state;
-        $order->country = $request->country;
-        $order->zip_code = $request->zipCode;
+        $order->ship_address_1 = $request->shipAddress1;
+        $order->ship_address_2 = $request->shipAddress2;
+        $order->ship_city = $request->shipCity;
+        $order->ship_state = $request->shipState;
+        $order->ship_country = $request->shipCountry;
+        $order->ship_zip_code = $request->shipZipCode;
+        $order->bill_address_1 = $request->billAddress1;
+        $order->bill_address_2 = $request->billAddress2;
+        $order->bill_city = $request->billCity;
+        $order->bill_state = $request->billState;
+        $order->bill_country = $request->billCountry;
+        $order->bill_zip_code = $request->billZipCode;
+        $order->email = $request->email;
         $order->card_number = $request->cardNumber;
         $order->card_exp_date = $request->expDate;
         $order->cv_code = $request->CVV;
