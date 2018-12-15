@@ -11,7 +11,7 @@
 
     {{-- CSS global to every page can be loaded here --}}
     <link href='/css/icecream.css' rel='stylesheet'>
-    <title>@yield('title', 'The Sundae King')</title>
+    <title class="title">@yield('title', 'The Sundae King')</title>
 
     {{-- CSS specific to a given page/child view can be included via a stack --}}
     @stack('head')

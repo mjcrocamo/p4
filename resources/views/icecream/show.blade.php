@@ -24,11 +24,11 @@
                                  <div>
                                      <span class="flavorDescription">{{ $flavor->description }}</span>
                                  </div>
+                                 @include('modules.field-error', ['field' => 'flavors'])
                                  <div>
                                      <img class="flavorPictureEdit" src={{ $flavor->picture_url }}/>
                                  </div>
                              </label>
-                             @include('modules.field-error', ['field' => 'flavors'])
                          </li>
                     @endforeach
                  </ul>
@@ -38,30 +38,36 @@
                 <div class="flavor">
                     <ul>
                         @foreach($toppings as $topping)
-                            @include('modules.field-error', ['field' => 'toppings'])
-                            <li><span class="flavorName">{{ $topping->topping }}</span></li>
-                            <label class="checkbox">
-                                <li><img class="flavorPic" src={{ $topping->topping_url }}/>
-                                    <input {{ (in_array($topping->id, old('toppings', []) )) ? 'checked' : '' }} type="checkbox" name='toppings[]' value={{ $topping->id }}></li>
-                            </label>
+                            <li>
+                                <label class="checkbox">
+                                    <input {{ (in_array($topping->id, old('toppings', []) )) ? 'checked' : '' }} type="checkbox" name='toppings[]' value={{ $topping->id }}>
+
+                                    <span class="flavorName">{{ $topping->topping }}</span>
+                                    @include('modules.field-error', ['field' => 'toppings'])
+                                    <div>
+                                        <img class="flavorPictureEdit" src={{ $topping->topping_url }}/>
+                                    </div>
+                                </label>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
             </section>
-            <div class="quantity">
-                <input type="text" name="quantity" value={{ old('quantity', 1) }}>
+            <div class="col-md-3">
+                <h3 class="choiceHeadings">Quantity</h3>
+                <input class="form-control" type="text" name="quantity" value={{ old('quantity', 1) }}>
                 @include('modules.field-error', ['field' => 'quantity'])
-            </div>
-            <div class="size">
-                <select name='size_id'>
+                <select class="form-control" name='size_id'>
                     <option value=''>Choose a size...</option>
                     @foreach($sizes as $size)
                         <option value='{{ $size->id }}' {{ old('size_id') ? 'selected' : '' }}>{{ $size->size }}</option>
                     @endforeach
                 </select>
                 @include('modules.field-error', ['field' => 'size_id'])
+            <div>
+                <input type="submit" value="Add to Cart" class="btn btn-primary">
             </div>
-            <input type="submit" value="Add to Cart" class="btn btn-primary">
+            </div>
         </form>
     </section>
 @endsection

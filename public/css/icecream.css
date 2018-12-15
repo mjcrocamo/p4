@@ -50,6 +50,21 @@ footer {
     line-height: 60px; /* Vertically center the text there */
 }
 
+footer a {
+    color: #547b8c;
+}
+
+footer a:link {
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #041f42;
+}
+.title {
+    color: #376787;
+    font-size: 50px;
+}
 
 ul {
     list-style: none;
@@ -64,6 +79,7 @@ nav {
     padding: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: #eee;
 }
 
 nav ul {
@@ -87,8 +103,12 @@ nav ul li a:link {
     text-decoration: none;
 }
 
+nav ul li a {
+    color: #547b8c;
+}
+
 nav ul li a:hover {
-    color: #18bc9c; /* teel */
+    color: #041f42;
 }
 
 /*----------------------------------------------------
@@ -101,14 +121,7 @@ Misc
     text-transform: uppercase;
     font-size: 25px;
     margin-bottom: 10px;
-}
-
-.ViewSundae a:hover {
-    color: #18bc9c; /* teel */
-}
-
-.ViewSundae a:link {
-    text-decoration: none;
+    color: #547b8c;
 }
 
 /* index picture */
@@ -122,6 +135,7 @@ Misc
     font-weight: bold;
     text-transform: uppercase;
     font-size: 35px;
+    color: #375777;
 }
 
 /*----------------------------------------------------
@@ -145,11 +159,15 @@ Edit page
     font-weight: bold;
     text-transform: uppercase;
     font-size: 25px;
+    color: #375777;
 }
 
 .flavorDescription {
     font-style: italic;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #041f42;
+
 }
 
 /* class for choice headings on page, ie Flavors, Toppings etc. */
@@ -157,5 +175,52 @@ Edit page
     font-weight: bold;
     text-transform: uppercase;
     font-size: 30px;
+    color: #547b8c;
 }
+
+/*----------------------------------------------------
+Typography
+-----------------------------------------------------*/
+
+a.active:link, a.active:visited, a.active:active, a.active:hover {
+    color: #18bc9c;
+}
+
+/*----------------------------------------------------
+Errors and alerts, taken and modified from foobooks
+-----------------------------------------------------*/
+.error {
+    list-style-type: none;
+    color: #8c1d2c; /* red */
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.alert {
+    background-color: #5db7ae;
+    color:white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+ul.alert {
+    list-style-type: none;
+}
+
+.success {
+    color: #a6edd1; /* greenish */
+}
+
+.details {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
 

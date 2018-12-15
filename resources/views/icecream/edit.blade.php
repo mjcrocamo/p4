@@ -54,11 +54,11 @@
                 <div class="col-md-3">
                    <h3 class="choiceHeadings">Quantity</h3>
                    <div class="quantityEdit">
-                        <input type="text" name="quantity" value={{ old('quantity', $basket_item["quantity"]) }}>
+                        <input type="text" class="form-control" name="quantity" value={{ old('quantity', $basket_item["quantity"]) }}>
                         @include('modules.field-error', ['field' => 'quantity'])
                     </div>
                     <h3 class="choiceHeadings">Size</h3>
-                    <select name='size_id'>
+                    <select name='size_id' class="form-control">
                         <option value=''>Choose a size...</option>
                         @foreach($sizes as $size)
                             <option value='{{ $size->id }}' {{ old('size_id',$basket_item["size_id"]) ? 'selected' : '' }}>{{ $size->size }}</option>

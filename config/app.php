@@ -4,7 +4,7 @@ return [
 
     'nav' => [
         '/' => 'Home',
-        '/show' => 'View Sundae Choices',
+        '/show' => 'Order Sundae',
         '/cart' => 'View Cart',
     ],
 

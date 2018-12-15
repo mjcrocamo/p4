@@ -6,9 +6,9 @@
 
 @section('content')
     <section>
-        <div class="ViewSundae">
-            <a href="/show">Order Sundae Here</a>
-        </div>
+        <!--<div class="ViewSundae">
+            Welcome to the Sundae King
+        </div>-->
         <img class="indexPic" src="images/flavors/vanilla2.jpg"/>
     </section>
 @endsection
