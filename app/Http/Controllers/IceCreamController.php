@@ -17,6 +17,7 @@ class IceCreamController extends Controller
 {
     /*
      * GET /
+     * View the home page
      */
     public function index()
     {
@@ -25,6 +26,9 @@ class IceCreamController extends Controller
 
     /*
      * GET /show
+     * Page that shows the items to add to your cart
+     * Get all the toppings, flavors and sizes
+     * Send them to the view
      */
     public function show()
     {
@@ -41,6 +45,12 @@ class IceCreamController extends Controller
 
     /*
      * POST /cart
+     * Adds items to the users cart (basket)
+     * Validate request
+     * Get session id. If new session and no items in basket
+     * Create a new basket and basket items
+     * If they already have items in the basket, create the new item
+     * Return to homepage and flash that item has been added
      */
     public function addCart(Request $request)
     {
@@ -91,6 +101,10 @@ class IceCreamController extends Controller
 
     /*
      *GET /cart
+     * Route to view basket
+     * Get the session id
+     * If no items in basket show that no items are there
+     * If they do have items, return the list of items
      */
     public function showCart(Request $request)
     {
@@ -114,6 +128,9 @@ class IceCreamController extends Controller
 
     /*
      *GET /edit/{item_id}
+     * Page which allows user to edit one item in their cart
+     * Show all the flavors, toppings and sizes as well as
+     * what is currently chosen for that item
      */
     public function edit($item_id)
     {
@@ -138,6 +155,9 @@ class IceCreamController extends Controller
 
     /*
      *PUT /cart/{item_id}/update
+     * Route to update item in cart.
+     * Validate request
+     * Sync item updates to database
      */
     public function update(Request $request, $item_id)
     {
@@ -164,6 +184,9 @@ class IceCreamController extends Controller
 
     /*
      *DELETE /cart/{item_id}/delete
+     * Route to delete item from cart
+     * Find the item and delete it from the database
+     * If all items deleted, delete instance of a basket as well
      */
     public function delete(Request $request, $item_id)
     {
@@ -190,6 +213,10 @@ class IceCreamController extends Controller
 
     /*
      *GET View Order page
+     * Page to review an order before placing it
+     * Get  and show information about the basket for the user
+     * Have forms for information to place the order
+     * If not the correct session_id, return a redirect
      */
     public function viewOrder(Request $request, $basket_id)
     {
@@ -212,6 +239,10 @@ class IceCreamController extends Controller
 
     /*
      *POST View Order page
+     * Route to place the order
+     * Validate the request
+     * Use information to update rows in orders and orderitems, as well as pivot tables flavors and toppings
+     * Delete rows from basket and basket items
      */
     public function placeOrder(Request $request, $basket_id)
     {
@@ -299,6 +330,11 @@ class IceCreamController extends Controller
             'order_number' => $order_number
             ]);
     }
+
+    /*
+     *GET
+     * Route to return a redirect to the homepage
+     */
 
     public function orderReroute($basket_id) {
         return redirect('/');
