@@ -11,7 +11,7 @@
 
     {{-- CSS global to every page can be loaded here --}}
     <link href='/css/icecream.css' rel='stylesheet'>
-    <title class="title">@yield('title', 'The Sundae King')</title>
+    <title>@yield('title', 'The Sundae King')</title>
 
     {{-- CSS specific to a given page/child view can be included via a stack --}}
     @stack('head')
@@ -25,7 +25,7 @@
 @endif
 
 <header>
-    <h1>The Sundae King</h1>
+    <h1 class="title">The Sundae King</h1>
     @include('modules.nav')
 </header>
 

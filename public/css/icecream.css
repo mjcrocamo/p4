@@ -62,8 +62,10 @@ footer a:hover {
     color: #041f42;
 }
 .title {
-    color: #376787;
+    color: #183e4c;
     font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 ul {
@@ -175,7 +177,7 @@ Edit page
     font-weight: bold;
     text-transform: uppercase;
     font-size: 30px;
-    color: #547b8c;
+    color: #375777;
 }
 
 /*----------------------------------------------------

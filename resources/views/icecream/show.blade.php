@@ -10,10 +10,10 @@
 
 @section('content')
     <section id='allFlavors'>
-        <h2 class="pageHeading">Flavors</h2>
-        <form method="POST" action="/cart">
+        <form class="form-row" method="POST" action="/cart">
             {{ csrf_field() }}
-            <div class="flavor">
+            <div class="col-4">
+                <h2 class="choiceHeadings">Flavors</h2>
                  <ul>
                     @foreach($flavors as $flavor)
                          <li>
@@ -33,30 +33,30 @@
                     @endforeach
                  </ul>
             </div>
-            <section id='allToppings'>
-                <h2 class="pageHeading">Toppings</h2>
-                <div class="flavor">
-                    <ul>
-                        @foreach($toppings as $topping)
-                            <li>
-                                <label class="checkbox">
-                                    <input {{ (in_array($topping->id, old('toppings', []) )) ? 'checked' : '' }} type="checkbox" name='toppings[]' value={{ $topping->id }}>
-
-                                    <span class="flavorName">{{ $topping->topping }}</span>
-                                    @include('modules.field-error', ['field' => 'toppings'])
-                                    <div>
-                                        <img class="flavorPictureEdit" src={{ $topping->topping_url }}/>
-                                    </div>
-                                </label>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </section>
-            <div class="col-md-3">
+            <div class="col-5">
+                <h2 class="choiceHeadings">Toppings</h2>
+                <ul>
+                    @foreach($toppings as $topping)
+                        <li>
+                            <label class="checkbox">
+                                <input {{ (in_array($topping->id, old('toppings', []) )) ? 'checked' : '' }} type="checkbox" name='toppings[]' value={{ $topping->id }}>
+                                <span class="flavorName">{{ $topping->topping }}</span>
+                                @include('modules.field-error', ['field' => 'toppings'])
+                                <div>
+                                    <img class="flavorPictureEdit" src={{ $topping->topping_url }}/>
+                                </div>
+                            </label>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class=class="col-3">
                 <h3 class="choiceHeadings">Quantity</h3>
-                <input class="form-control" type="text" name="quantity" value={{ old('quantity', 1) }}>
-                @include('modules.field-error', ['field' => 'quantity'])
+                <div class="quantityEdit">
+                    <input class="form-control" type="text" name="quantity" value={{ old('quantity', 1) }}>
+                    @include('modules.field-error', ['field' => 'quantity'])
+                </div>
+                <h3 class="choiceHeadings">Size</h3>
                 <select class="form-control" name='size_id'>
                     <option value=''>Choose a size...</option>
                     @foreach($sizes as $size)
@@ -64,9 +64,9 @@
                     @endforeach
                 </select>
                 @include('modules.field-error', ['field' => 'size_id'])
-            <div>
-                <input type="submit" value="Add to Cart" class="btn btn-primary">
-            </div>
+                <div class="editButton">
+                    <input type="submit" value="Add to Cart" class="btn btn-primary">
+                </div>
             </div>
         </form>
     </section>

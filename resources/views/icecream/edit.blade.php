@@ -14,7 +14,7 @@
             <form class="form-row" method="POST" action="/cart/{{ $basket_item["id"] }}/update">
                 {{ method_field('put') }}
                 {{ csrf_field() }}
-                <div class="col-md-4">
+                <div class="col-4">
                     <h2 class="choiceHeadings">Flavors</h2>
                     <ul>
                         @foreach($flavors as $flavor)
@@ -51,7 +51,7 @@
                             </ul>
                         </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-sm-3">
                    <h3 class="choiceHeadings">Quantity</h3>
                    <div class="quantityEdit">
                         <input type="text" class="form-control" name="quantity" value={{ old('quantity', $basket_item["quantity"]) }}>
