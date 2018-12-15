@@ -1,9 +1,67 @@
+
+/*----------------------------------------------------
+Main body styling
+-----------------------------------------------------*/
+/* box sizing: http://www.paulirish.com/2012/box-sizing-border-box-ftw */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+html {
+    color: #111;
+
+    /* sticky footer */
+    position: relative;
+    min-height: 100%;
+    max-width: 100%;
+
+}
+
+body {
+    text-align: center;
+
+    /* sticky footer - match footer height */
+    margin-bottom: 60px;
+}
+
+section#main {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #eee;
+
+    /* sticky footer */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+
+ul {
+    list-style: none;
+}
+
 /*----------------------------------------------------
 Nav bar
 -----------------------------------------------------*/
 nav {
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid #c4c3cc;
+    border-bottom: 1px solid #c4c3cc;
     padding: 5px;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -23,6 +81,7 @@ nav ul li {
 nav ul li {
     font-weight: bold;
     text-transform: uppercase;
+    font-size: 25px;
 }
 
 nav ul li a:link {
@@ -31,5 +90,24 @@ nav ul li a:link {
 
 nav ul li a:hover {
     color: #18bc9c; /* teel */
+}
+
+/*----------------------------------------------------
+Misc
+-----------------------------------------------------*/
+
+/* Order sundae link */
+.ViewSundae {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.ViewSundae a:hover {
+    color: #18bc9c; /* teel */
+}
+
+.ViewSundae a:link {
+    text-decoration: none;
 }
 

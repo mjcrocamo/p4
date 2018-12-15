@@ -18,8 +18,10 @@
                     @foreach($flavors as $flavor)
                          <li><span class="flavorName">{{ $flavor->flavor }}</span></li>
                          <label class="checkbox">
-                        <li><img class="flavorPic" src={{ $flavor->picture_url }}/>
-                             <input {{ (in_array($flavor->id, old('flavors', []) )) ? 'checked' : '' }} type="checkbox" name='flavors[]' value={{ $flavor->id }}></li>
+                        <li>
+                            <img class="flavorPic" src={{ $flavor->picture_url }}/>
+                             <input {{ (in_array($flavor->id, old('flavors', []) )) ? 'checked' : '' }} type="checkbox" name='flavors[]' value={{ $flavor->id }}>
+                        </li>
                          </label>
                         <li><span class="flavorDescription">{{ $flavor->description }}</span></li>
                          @include('modules.field-error', ['field' => 'flavors'])

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Edit Sundae
+    Update Sundae
 @endsection
 
 @push('head')

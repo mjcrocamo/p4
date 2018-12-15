@@ -5,10 +5,10 @@
 @endpush
 
 @section('content')
-    <section id='hi'>
-        <h2>Hi!</h2>
-        <form method="GET" action="/show">
-            <input type="submit" value="Order Sundae!" class="btn btn-primary">
-        </form>
+    <section>
+        <div class="ViewSundae">
+            <a href="/show">Order Sundae Here</a>
+        </div>
+        <img class="flavorPic" src="images/flavors/vanilla2.jpg"/>
     </section>
 @endsection
