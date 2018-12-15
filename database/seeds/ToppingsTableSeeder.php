@@ -14,17 +14,17 @@ class ToppingsTableSeeder extends Seeder
     {
         //
         $toppings = [
-            ["Chocolate Sprinkles","images/toppings/chocolate-sprinkles.jpg"],
-            ["Hot Fudge","images/toppings/HotFudge.jpg"],
-            ["Rainbow Sprinkles","images/toppings/rainbow-sprinkles.jpg"],
-            ["Chocolate Syrup","images/toppings/chocolate-syrup.jpg"],
-            ["Marshmallow","images/toppings/marshmallow.jpg"],
-            ["Banana","images/toppings/banana.jpg"],
-            ["Pineapple","images/toppings/pineapple.jpg"],
-            ["Strawberry","images/toppings/strawberry.jpg"],
-            ["Reeses Peanut Butter Cups","images/toppings/reeses.jpg"],
-            ["Whipped Cream","images/toppings/whipped-cream.jpg"],
-            ["Chocolate Chips","images/toppings/chocolate-chips.jpg"]
+            ["Chocolate Sprinkles","/images/toppings/chocolate-sprinkles.jpg"],
+            ["Hot Fudge","/images/toppings/HotFudge.jpg"],
+            ["Rainbow Sprinkles","/images/toppings/rainbow-sprinkles.jpg"],
+            ["Chocolate Syrup","/images/toppings/chocolate-syrup.jpg"],
+            ["Marshmallow","/images/toppings/marshmallow.jpg"],
+            ["Banana","/images/toppings/banana.jpg"],
+            ["Pineapple","/images/toppings/pineapple.jpg"],
+            ["Strawberry","/images/toppings/strawberry.jpg"],
+            ["Reeses Peanut Butter Cups","/images/toppings/reeses.jpg"],
+            ["Whipped Cream","/images/toppings/whipped-cream.jpg"],
+            ["Chocolate Chips","/images/toppings/chocolate-chips.jpg"]
             ];
 
         $count = count($toppings);

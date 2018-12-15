@@ -1,6 +1,6 @@
 
 /*----------------------------------------------------
-Main body styling
+Main body styling, some taken from foobooks master project example
 -----------------------------------------------------*/
 /* box sizing: http://www.paulirish.com/2012/box-sizing-border-box-ftw */
 * {
@@ -8,7 +8,6 @@ Main body styling
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 
 
 html {
@@ -57,7 +56,7 @@ ul {
 }
 
 /*----------------------------------------------------
-Nav bar
+Nav bar, based off of foobooks
 -----------------------------------------------------*/
 nav {
     border-top: 1px solid #c4c3cc;
@@ -119,7 +118,7 @@ Misc
 
 /* Flavor/Topping heading on show page */
 
-.showFlavors {
+.pageHeading {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 35px;
@@ -141,10 +140,11 @@ Edit page
     margin-bottom: 15px;
 }
 
+/* Class for flavor names */
 .flavorName {
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 25px;
 }
 
 .flavorDescription {
@@ -152,6 +152,7 @@ Edit page
     font-size: 16px;
 }
 
+/* class for choice headings on page, ie Flavors, Toppings etc. */
 .choiceHeadings {
     font-weight: bold;
     text-transform: uppercase;

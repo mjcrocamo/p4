@@ -10,27 +10,31 @@
 
 @section('content')
     <section id='allFlavors'>
-        <h2 class="showFlavors">Flavors</h2>
+        <h2 class="pageHeading">Flavors</h2>
         <form method="POST" action="/cart">
             {{ csrf_field() }}
             <div class="flavor">
                  <ul>
                     @foreach($flavors as $flavor)
-                         <li><span class="flavorName">{{ $flavor->flavor }}</span></li>
-                         <label class="checkbox">
-                        <li>
-                            <img class="flavorPic" src={{ $flavor->picture_url }}/>
-                             <input {{ (in_array($flavor->id, old('flavors', []) )) ? 'checked' : '' }} type="checkbox" name='flavors[]' value={{ $flavor->id }}>
-                        </li>
-                         </label>
-                        <li><span class="flavorDescription">{{ $flavor->description }}</span></li>
-                         @include('modules.field-error', ['field' => 'flavors'])
+                         <li>
+                             <label class="checkbox">
+                                 <input {{ (in_array($flavor->id, old('flavors', []) )) ? 'checked' : '' }} type="checkbox" name='flavors[]' value={{ $flavor->id }}>
+
+                                 <span class="flavorName">{{ $flavor->flavor }}</span>
+                                 <div>
+                                     <span class="flavorDescription">{{ $flavor->description }}</span>
+                                 </div>
+                                 <div>
+                                     <img class="flavorPictureEdit" src={{ $flavor->picture_url }}/>
+                                 </div>
+                             </label>
+                             @include('modules.field-error', ['field' => 'flavors'])
+                         </li>
                     @endforeach
                  </ul>
             </div>
-
             <section id='allToppings'>
-                <h2 class="showFlavors">Toppings</h2>
+                <h2 class="pageHeading">Toppings</h2>
                 <div class="flavor">
                     <ul>
                         @foreach($toppings as $topping)

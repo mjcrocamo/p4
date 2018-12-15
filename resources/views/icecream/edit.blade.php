@@ -10,7 +10,7 @@
 
 @section('content')
     <section id='allFlavors'>
-        <h2 class="showFlavors">Edit Sundae</h2>
+        <h2 class="pageHeading">Edit Sundae</h2>
             <form class="form-row" method="POST" action="/cart/{{ $basket_item["id"] }}/update">
                 {{ method_field('put') }}
                 {{ csrf_field() }}
@@ -25,6 +25,9 @@
                                 <span class="flavorName">{{ $flavor->flavor }}</span>
                                 <div>
                                     <span class="flavorDescription">{{ $flavor->description }}</span>
+                                </div>
+                                <div>
+                                    <img class="flavorPictureEdit" src={{ $flavor->picture_url }}/>
                                 </div>
                             </label>
                                 @include('modules.field-error', ['field' => 'flavors'])
