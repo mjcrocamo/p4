@@ -24,6 +24,11 @@
     </div>
 @endif
 
+<header>
+    <h1>The Sundae King</h1>
+    @include('modules.nav')
+</header>
+
 <section id="main">
     @yield('content')
 </section>

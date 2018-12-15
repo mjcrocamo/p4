@@ -13,7 +13,7 @@
         <h2>Sundae Cart</h2>
         <div class="flavor">
         <ul>
-
+            <h3>hi</h3>
             @foreach($basket_items as $basket_item)
                     @foreach($basket_item->flavors as $flavor)
                         <li>{{ $flavor->flavor }}</li>

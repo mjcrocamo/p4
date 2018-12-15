@@ -2,6 +2,13 @@
 
 return [
 
+    'nav' => [
+        '/' => 'Home',
+        '/show' => 'View Sundae Choices',
+        '/cart' => 'View Cart',
+    ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
