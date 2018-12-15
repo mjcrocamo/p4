@@ -64,7 +64,7 @@ nav {
     border-bottom: 1px solid #c4c3cc;
     padding: 5px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 nav ul {
@@ -101,6 +101,7 @@ Misc
     font-weight: bold;
     text-transform: uppercase;
     font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .ViewSundae a:hover {
@@ -109,5 +110,51 @@ Misc
 
 .ViewSundae a:link {
     text-decoration: none;
+}
+
+/* index picture */
+.indexPic {
+    width: 100%;
+}
+
+/* Flavor/Topping heading on show page */
+
+.showFlavors {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 35px;
+}
+
+/*----------------------------------------------------
+Edit page
+-----------------------------------------------------*/
+
+/* Update button edit page */
+
+.editButton {
+    margin-top: 15px;
+}
+
+/* Quantity text field edit page */
+
+.quantityEdit {
+    margin-bottom: 15px;
+}
+
+.flavorName {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.flavorDescription {
+    font-style: italic;
+    font-size: 16px;
+}
+
+.choiceHeadings {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 30px;
 }
 

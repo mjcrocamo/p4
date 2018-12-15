@@ -10,7 +10,7 @@
 
 @section('content')
     <section id='allFlavors'>
-        <h2>Flavors</h2>
+        <h2 class="showFlavors">Flavors</h2>
         <form method="POST" action="/cart">
             {{ csrf_field() }}
             <div class="flavor">
@@ -30,7 +30,7 @@
             </div>
 
             <section id='allToppings'>
-                <h2>Toppings</h2>
+                <h2 class="showFlavors">Toppings</h2>
                 <div class="flavor">
                     <ul>
                         @foreach($toppings as $topping)

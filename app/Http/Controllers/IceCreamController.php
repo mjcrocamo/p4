@@ -57,7 +57,6 @@ class IceCreamController extends Controller
         $this->validate($request, [
             'quantity' => 'required|max:3|numeric',
             'size_id' => 'required',
-            'toppings' => 'required_without_all',
             'flavors' => 'required_without_all'
         ]);
 
@@ -164,7 +163,6 @@ class IceCreamController extends Controller
         $this->validate($request, [
             'quantity' => 'required|max:3|numeric',
             'size_id' => 'required',
-            'toppings' => 'required_without_all',
             'flavors' => 'required_without_all'
         ]);
 
