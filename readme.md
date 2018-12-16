@@ -14,7 +14,7 @@ Primary tables:
   + `orders`: table which stores the main information when an order is placed
   + `orderitems`: table which stores information about the individual items per order
    + `flavors` : table which stores all the flavors of ice cream
-   + `topiings`: table which stores all the toppings and their prices
+   + `toppings`: table which stores all the toppings and their prices
    + `sizes`: table which stores all the sizes and their prices
   
 Pivot table(s):
