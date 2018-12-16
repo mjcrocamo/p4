@@ -27,7 +27,7 @@
                                     <span class="flavorDescription">{{ $flavor->description }}</span>
                                 </div>
                                 <div>
-                                    <img class="flavorPictureEdit" src={{ $flavor->picture_url }}/>
+                                    <img class="flavorPicture" src={{ $flavor->picture_url }}/>
                                 </div>
                             </label>
                                 @include('modules.field-error', ['field' => 'flavors'])
@@ -44,6 +44,7 @@
                                     <label class="checkbox">
                                         <input {{ (in_array($topping->id, old('toppings', $toppingsForItem))) ? 'checked' : '' }} type="checkbox" name='toppings[]' value={{ $topping->id }}/>
                                         <span class="flavorName">{{ $topping->topping }}</span>
+                                        <span class="toppingPrice">(+ ${{ $topping->price }})</span>
                                     </label>
                                 </li>
                                     @include('modules.field-error', ['field' => 'toppings'])
@@ -61,7 +62,7 @@
                     <select name='size_id' class="form-control">
                         <option value=''>Choose a size...</option>
                         @foreach($sizes as $size)
-                            <option value='{{ $size->id }}' {{ old('size_id',$basket_item["size_id"]) ? 'selected' : '' }}>{{ $size->size }}</option>
+                            <option value='{{ $size->id }}' {{ old('size_id',$basket_item["size_id"]) ? 'selected' : '' }}>{{ $size->size }} (${{ $size->price }})</option>
                         @endforeach
                     </select>
                     @include('modules.field-error', ['field' => 'size_id'])

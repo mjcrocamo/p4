@@ -43,4 +43,9 @@ class Basketitem extends Model
     {
         return self::where("basket_id","=", $basket_id)->exists();
     }
+
+    public static function getBasketPrices($basket_id)
+    {
+        return self::select(['basket_item_total'])->where("basket_id","=", $basket_id)->get();
+    }
 }

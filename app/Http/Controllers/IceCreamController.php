@@ -184,13 +184,42 @@ class IceCreamController extends Controller
             'flavors' => 'required_without_all'
         ]);
 
+        $session_id = $request->session()->getId();
+
+        $basket = Basket::getBasketObject($session_id);
+
+        $topping_prices = Topping::getToppingPrices($request->toppings);
+
+        $toppings_price = 0;
+        foreach($topping_prices as $topping) {
+            $toppings_price += $topping->price;
+        }
+
+        $size = Size::find($request->size_id);
+        $size_price = $size->price;
+
+        $item_price = $toppings_price + $size_price;
+
         $basket_item = Basketitem::find($item_id);
+
+        $old_item_price = $basket_item->basket_item_total;
+        $basket_current_total = $basket->basket_total;
+        $basket->basket_total = $basket_current_total - $old_item_price;
+        $basket->save();
+
         $basket_item->flavors()->sync($request->flavors);
         $basket_item->toppings()->sync($request->toppings);
 
         $basket_item->quantity = $request->quantity;
         $basket_item->size_id = $request->size_id;
+        $basket_item->basket_item_total = $item_price;
         $basket_item->save();
+
+        $new_basket = Basket::getBasketObject($session_id);
+        $basket_total = $new_basket->basket_total;
+        $new_basket->basket_total = $basket_total + $item_price;
+
+        $new_basket->save();
 
         return redirect('/cart')->with([
             'alert' => $request->quantity . ' items have been updated in your cart.'
@@ -206,15 +235,22 @@ class IceCreamController extends Controller
      */
     public function delete(Request $request, $item_id)
     {
+        $session_id = $request->session()->getId();
 
         $basket_item = Basketitem::find($item_id);
         $basket_id = $basket_item->basket_id;
         $quantity = $basket_item->quantity;
+        $item_price = $basket_item->basket_item_total;
         $basket_item ->flavors()->detach();
         $basket_item ->toppings()->detach();
         $basket_item->delete();
 
         $basket_items = Basketitem::checkBasketItems($basket_id);
+        $basket = Basket::getBasketObject($session_id);
+
+        $basket_total = $basket->basket_total;
+        $basket->basket_total = $basket_total - $item_price;
+        $basket->save();
 
         if(!$basket_items) {
             $basket = Basket::find($basket_id);
@@ -222,7 +258,7 @@ class IceCreamController extends Controller
         }
 
         return redirect('/cart')->with([
-            'alert' => $quantity . ' items have been removed from the cart.'
+            'alert' => $quantity . ' items have been removed from your cart.'
         ]);
 
     }
