@@ -235,7 +235,6 @@ class IceCreamController extends Controller
      */
     public function delete(Request $request, $item_id)
     {
-        $session_id = $request->session()->getId();
 
         $basket_item = Basketitem::find($item_id);
         $basket_id = $basket_item->basket_id;
@@ -246,15 +245,14 @@ class IceCreamController extends Controller
         $basket_item->delete();
 
         $basket_items = Basketitem::checkBasketItems($basket_id);
-        $basket = Basket::getBasketObject($session_id);
-
-        $basket_total = $basket->basket_total;
-        $basket->basket_total = $basket_total - $item_price;
-        $basket->save();
+        $basket = Basket::find($basket_id);
 
         if(!$basket_items) {
-            $basket = Basket::find($basket_id);
             $basket->delete();
+        } else {
+            $basket_total = $basket->basket_total;
+            $basket->basket_total = $basket_total - $item_price;
+            $basket->save();
         }
 
         return redirect('/cart')->with([

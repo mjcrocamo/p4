@@ -42,7 +42,7 @@
                                 @foreach($toppings as $topping)
                                 <li>
                                     <label class="checkbox">
-                                        <input {{ (in_array($topping->id, old('toppings', $toppingsForItem))) ? 'checked' : '' }} type="checkbox" name='toppings[]' value={{ $topping->id }}/>
+                                        <input {{ (in_array($topping->id, old('toppings', $toppingsForItem))) ? 'checked' : '' }} type="checkbox" name='toppings[]' value={{ $topping->id }}>
                                         <span class="flavorName">{{ $topping->topping }}</span>
                                         <span class="toppingPrice">(+ ${{ $topping->price }})</span>
                                     </label>
