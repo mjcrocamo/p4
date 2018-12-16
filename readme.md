@@ -48,7 +48,7 @@ __Delete__
 
 ## Outside resources
 + I used some code for the nav and some css styling from foobooks
-###Resouces for Images
+### Resouces for Images
 #### All images were used for educational purposes and found using google images
 + vanilla: https://bpsfuelforthought.files.wordpress.com/2014/01/vanilla-ice-cream.jpg
 + chocolate: https://images.food52.com/HzawX1ZSKt66oQYV97SG0QSGwbI=/753x502/ad0a5aeb-c9e3-4ba2-877e-266f33c06b76--food52_02-19-13-0043.jpg
