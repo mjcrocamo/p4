@@ -19,9 +19,9 @@ Primary tables:
   
 Pivot table(s):
   + `basketitem_flavor`: Links items in the basket to what flavors they are
-   + `basketitem_topping`: Links items in the basket to what topppings they have
-    + `flavor_orderitem`: Links items in an order to what flavors they are
-     + `orderitem_topping`: Links items in an order to what toppings they have
+  + `basketitem_topping`: Links items in the basket to what topppings they have
+  + `flavor_orderitem`: Links items in an order to what flavors they are
+  + `orderitem_topping`: Links items in an order to what toppings they have
 
 
 ## CRUD
