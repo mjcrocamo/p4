@@ -13,7 +13,7 @@
         <h2 class="pageHeading">Review your Order</h2>
         <form method="POST" class="form-row" action="/placeOrder/{{ $basket_id }}">
             {{ csrf_field() }}
-            <div class="col-2">
+            <div class="col-3">
                 <h3 class="choiceHeadings">Shipping Info</h3>
                 <div>
                 <label>
@@ -70,7 +70,7 @@
                 @include('modules.field-error', ['field' => 'shipZipCode'])
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-3">
                 <h3 class="choiceHeadings">Billing Info</h3>
                 <div>
                     <label>
@@ -130,14 +130,15 @@
                 @include('modules.field-error', ['field' => 'expDate'])
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <h3 class="choiceHeadings">Place Order</h3>
+                <h4 class="reviewTotal2">Order Total: <span class="reviewTotal">${{ $basket->basket_total }}</span></h4>
                 <div class="placeOrderbutton">
                     <input type='submit' value='Place Order' class='btn btn-primary'/>
                 </div>
                 <ul>
                     @foreach($basket_items as $basket_item)
-                    <li>
+                    <li class="itemList">
                         <span class="flavorNameReview">Flavors:</span>
                         @foreach($basket_item->flavors as $flavor)
                             <span class="reviewDescription">{{ $flavor->flavor }},</span>
@@ -150,8 +151,13 @@
                                 @endforeach
                             @endif
                         </div>
-                        <li><span class="flavorNameReview">Size: </span><span class="reviewDescription">{{ $basket_item->size->size }}</span></li>
-                        <li><span class="flavorNameReview">Quantity: </span><span class="reviewDescription">{{ $basket_item->quantity }}</span></li>
+                        <li>
+                            <span class="flavorNameReview">Size: </span><span class="reviewDescription">{{ $basket_item->size->size }}</span>
+                            <span class="quantityCartReview">Quantity: </span><span class="reviewDescription">{{ $basket_item->quantity }}</span>
+                        </li>
+                        <li>
+                            <span class="flavorNameReview">Price: </span><span class="reviewDescription">${{ $basket_item->basket_item_total }}</span>
+                        </li>
                         @foreach($basket_item->flavors as $flavor)
                             <img class="flavorPicReview" src={{ $flavor->picture_url }}/>
                         @endforeach

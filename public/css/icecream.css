@@ -143,6 +143,10 @@ Some page headings
     color: #375777;
 }
 
+.itemList {
+    margin-top: 10px;
+}
+
 /*----------------------------------------------------
 buttons
 -----------------------------------------------------*/
@@ -163,11 +167,16 @@ buttons
 }
 
 .Updatebutton {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .deletebutton {
+}
+
+.placeOrderbutton {
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .checkoutButton {
@@ -238,6 +247,46 @@ Text
     font-weight: bold;
     font-size: 18px;
     color: #041f42;
+}
+
+.cartTotal {
+    font-weight: bold;
+    font-size: 30px;
+    color: #041f42;
+}
+
+.cartTotal2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: #375777;
+}
+
+.reviewTotal {
+    font-weight: bold;
+    font-size: 20px;
+    color: #041f42;
+}
+
+.reviewTotal2 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #375777;
+}
+
+.quantityCart {
+    margin-left: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 25px;
+    color: #375777;
+}
+
+.quantityCartReview {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #375777;
+    margin-left: 12px;
 }
 /*------------------------------------------------
   Image manipulation

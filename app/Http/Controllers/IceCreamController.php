@@ -133,13 +133,12 @@ class IceCreamController extends Controller
         if(!$check_basket) {
             return view('icecream.emptybasket');
         } else {
-            $basket = Basket::getBasket($session_id);
-            $basket_id = $basket[0]["id"];
-            $basket_items = Basketitem::getBasketItems($basket_id);
+            $basket = Basket::getBasketObject($session_id);
+            $basket_items = Basketitem::getBasketItems($basket->id);
 
             return view('icecream.basket')->with([
                 'basket_items' => $basket_items,
-                'basket_id' => $basket_id
+                'basket' => $basket
             ]);
         }
     }
@@ -240,16 +239,17 @@ class IceCreamController extends Controller
         $session_id = $request->session()->getId();
 
         $check_basket = Basket::checkBasket($session_id);
-        $basket = Basket::getBasket($session_id);
+        $basket = Basket::getBasketObject($session_id);
 
-        if (!$check_basket or $basket[0]["id"] != $basket_id) {
+        if (!$check_basket or $basket->id != $basket_id) {
             return redirect('/');
         } else {
             $basket_items = Basketitem::getBasketItems($basket_id);
 
             return view('icecream.review_order')->with([
                 'basket_items' => $basket_items,
-                'basket_id' => $basket_id
+                'basket_id' => $basket_id,
+                'basket' => $basket
             ]);
         }
     }
