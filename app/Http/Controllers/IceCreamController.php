@@ -66,10 +66,20 @@ class IceCreamController extends Controller
 
         if (!$current_basket) {
 
+            $topping_prices = Topping::getToppingPrices($request->toppings);
+
+            $toppings_price = 0;
+            foreach($topping_prices as $topping) {
+                $toppings_price += $topping->price;
+            }
+
+            $size = Size::find($request->size_id);
+            $size_price = $size->price;
+
+            $total_price = $toppings_price + $size_price;
+
             $basket = new Basket();
             $basket->session_id = $session_id;
-            $size = Size::find($request->size_id);
-            $total_price = $size->price;
             $basket->basket_total = $total_price;
             $basket->save();
 
@@ -88,8 +98,17 @@ class IceCreamController extends Controller
             $basket_id = $current_baskets[0]["id"];
             $basket = Basket::find($basket_id);
 
+            $topping_prices = Topping::getToppingPrices($request->toppings);
+
+            $toppings_price = 0;
+            foreach($topping_prices as $topping) {
+                $toppings_price += $topping->price;
+            }
+
             $size = Size::find($request->size_id);
-            $item_price = $size->price;
+            $size_price = $size->price;
+
+            $item_price = $toppings_price + $size_price;
 
             $current_total = $basket->basket_total;
             $basket->basket_total = $current_total + $item_price;

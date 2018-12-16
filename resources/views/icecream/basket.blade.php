@@ -59,15 +59,5 @@
                 @endforeach
             </ul>
         </div>
-        <div class="checkoutButton">
-            <form method="GET" action="/viewOrder/{{ $basket_id}}">
-                <input type='submit' value='Check Out' class='btn btn-primary'>
-            </form>
-        </div>
-        <div class="continueShoppingButton">
-            <form method="GET" action="/show">
-                <input type='submit' value='Continue Shopping' class='btn btn-primary'>
-            </form>
-        </div>
     </section>
 @endsection

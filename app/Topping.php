@@ -23,4 +23,8 @@ class Topping extends Model
     {
         return self::select(['id','topping', 'topping_url','price'])->get();
     }
+
+    public static function getToppingPrices($topping_ids) {
+        return self::select(['price'])->whereIn("id",$topping_ids)->get();
+    }
 }
