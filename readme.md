@@ -1,69 +1,77 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Project 4
++ By: Maggie Crocamo
++ Production URL: <http://p4.maggiecroc11.me>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Application
++ Title: The Sundae King
++ An application that allows a user to buy customized sundaes and have them shipped to the address they specified.
 
-## About Laravel
+## Database
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+Primary tables:
+  + `basketitems` : table which holds all individual items that a user currently has in their cart
+  + `baskets`: table which stores the main instance of a basket per user
+  + `orders`: table which stores the main information when an order is placed
+  + `orderitems`: table which stores information about the individual items per order
+   + `flavors` : table which stores all the flavors of ice cream
+    + `topiings`: table which stores all the toppings and their prices
+    + `sizes`: table which stores all the sizes and their prices
+  
+Pivot table(s):
+  + `basketitem_flavor`: Links items in the basket to what flavors they are
+   + `basketitem_topping`: Links items in the basket to what topppings they have
+    + `flavor_orderitem`: Links items in an order to what flavors they are
+     + `orderitem_topping`: Links items in an order to what toppings they have
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+## CRUD
 
-## Learning Laravel
+__Create__
+  + Visit <http://p4.maggiecroc11.me/show>
+  + Choose flavors, toppings, quantity, and size for new sundae
+  + Click *Add to Cart*
+  + Observe confirmation message which says how many items were added to your cart
+  
+__Read__
+  + Visit <http://p4.maggiecroc11.me/show> or <http://p4.maggiecroc11.me/cart> to see a listing of all flavors, toppings, and sizes available or all sundae items added to the user's cart.
+  
+__Update__
+  + Visit <http://p4.foobooks.me/cart>; choose the Update button next to one of the items (once you've added an item to your cart)
+  + Make some edit to form
+  + Click *Update Cart*
+  + Observe confirmation message
+  
+__Delete__
+  + Visit <http://p4.foobooks.me/cart>; click the Remove button next to one of the items (once you've added an item to your cart)
+  + Confirm deletion
+  + Observe confirmation message
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+## Outside resources
++ I used some code for the nav and some css styling from foobooks
+###Resouces for Images
++ vanilla: https://bpsfuelforthought.files.wordpress.com/2014/01/vanilla-ice-cream.jpg
++ chocolate: https://images.food52.com/HzawX1ZSKt66oQYV97SG0QSGwbI=/753x502/ad0a5aeb-c9e3-4ba2-877e-266f33c06b76--food52_02-19-13-0043.jpg
++ cherry: https://d1wv4dwa0ti2j0.cloudfront.net/live/img/production/detail/ice-cream/cartons_rich-creamy_cherry-vanilla.jpg
++ chunky monkey: https://www.benjerry.com/files/live/sites/systemsite/files/flavors/products/us/pint/open-closed-pints/chunky-monkey-landing-open.png
++ half-baked: https://www.benjerry.com/files/live/sites/systemsite/files/flavors/flavors-redesign-details-2016/ecommerce-assets/pints/Half_Baked_11_mobile.jpg
++ chocolate-fudge-brownie: https://lifemadesimplebakes.com/wp-content/uploads/2015/07/Brownie-Fudge-Swirl-Ice-Cream-3.jpg
++ chocolate-chip: https://d1wv4dwa0ti2j0.cloudfront.net/live/img/production/detail/ice-cream/cartons_rich-creamy_chocolate-chip.jpg
++ cookie monster: https://www.cupcakediariesblog.com/2016/06/cookie-monster-ice-cream.html
++ graham-slam: https://i.pinimg.com/originals/70/7b/6e/707b6e9c75805791e097efcd4c303279.jpg
++ oreo: https://cdn.cpnscdn.com/static.coupons.com/ext/kitchme/images/recipes/600x400/easy-oreo-cookies-and-cream-ice-cream_32301.jpg
++ chocolate peanut butter : https://joyfoodsunshine.com/wp-content/uploads/2016/07/dairy-free-chocolate-peanut-butter-ice-cream-recipe-4.jpg
++ fudge-swirl: https://lmld.org/no-churn-peanut-butter-fudge-ice-cream/
++ chocolate sprinkles: https://www.seriouseats.com/images/2017/08/20170811-chocolate-sprinkles-vicky-wasik-1.jpg
++ hot-fudge: https://prettysimplesweet.com/wp-content/uploads/2017/07/HotFudgeSauce.jpg
++ rainbow-sprinkles: https://www.flickr.com/photos/12355559@N03/41980198192
++ chocolate syrup: https://pics.drugstore.com/prodimg/413338/900.jpg
++ marshmallow: https://iambaker.net/wp-content/uploads/2017/06/550SQUARE-marshmallow-sauce.jpg
++ banana: https://www.tasteofhome.com/wp-content/uploads/2017/10/exps36127_TH1195008D10-1.jpg
++ pineapple: http://cooklikeyourgrandmother.com/how-to-make-fried-pineapple-ice-cream-topping/
++ strawberry: https://www.tastesoflizzyt.com/wp-content/uploads/2015/05/Homemade-Strawberry-Topping-Recipe-5.jpg
++ reeses: https://sep.yimg.com/ay/blaircandy/reese-s-peanut-butter-cup-chopped-topping-5lb-bag-50.jpg
++ whipped cream: https://thetoughcookie.com/2016/07/27/super-smooth-whipped-cream-frosting-step-by-step/
++ chocolate-chips: https://nuts.com/images/auto/510x340/assets/ab227483912bb2d2.jpg
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# p4
+## Code style divergences
+None that I know of but may have missed on accident.
