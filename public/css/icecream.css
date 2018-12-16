@@ -233,6 +233,12 @@ Text
     font-size: 16px;
     color: #041f42;
 }
+
+.toppingPrice {
+    font-weight: bold;
+    font-size: 18px;
+    color: #041f42;
+}
 /*------------------------------------------------
   Image manipulation
 /*------------------------------------------------*/

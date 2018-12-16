@@ -19,7 +19,7 @@ class Size extends Model
 
     public static function show()
     {
-        return self::select(['id','size'])->get();
+        return self::select(['id','size','price'])->get();
     }
 
     public static function getSize($basket_item_id)

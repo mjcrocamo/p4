@@ -68,12 +68,16 @@ class IceCreamController extends Controller
 
             $basket = new Basket();
             $basket->session_id = $session_id;
+            $size = Size::find($request->size_id);
+            $total_price = $size->price;
+            $basket->basket_total = $total_price;
             $basket->save();
 
             $basket_item = new Basketitem();
             $basket_item->quantity = $request->quantity;
             $basket_item->basket_id = $basket->id;
             $basket_item->size_id = $request->size_id;
+            $basket_item->basket_item_total = $total_price;
             $basket_item->save();
 
             $basket_item->flavors()->sync($request->flavors);
@@ -81,11 +85,21 @@ class IceCreamController extends Controller
 
         } else {
             $current_baskets = Basket::getBasket($session_id);
+            $basket_id = $current_baskets[0]["id"];
+            $basket = Basket::find($basket_id);
+
+            $size = Size::find($request->size_id);
+            $item_price = $size->price;
+
+            $current_total = $basket->basket_total;
+            $basket->basket_total = $current_total + $item_price;
+            $basket->save();
 
             $basket_item = new Basketitem();
             $basket_item->quantity = $request->quantity;
-            $basket_item->basket_id = $current_baskets[0]["id"];
+            $basket_item->basket_id = $basket_id;
             $basket_item->size_id = $request->size_id;
+            $basket_item->basket_item_total = $item_price;
             $basket_item->save();
 
             $basket_item->flavors()->sync($request->flavors);

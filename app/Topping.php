@@ -21,6 +21,6 @@ class Topping extends Model
 
     public static function show()
     {
-        return self::select(['id','topping', 'topping_url'])->get();
+        return self::select(['id','topping', 'topping_url','price'])->get();
     }
 }

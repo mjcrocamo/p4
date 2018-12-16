@@ -41,6 +41,7 @@
                             <label class="checkbox">
                                 <input {{ (in_array($topping->id, old('toppings', []) )) ? 'checked' : '' }} type="checkbox" name='toppings[]' value={{ $topping->id }}>
                                 <span class="flavorName">{{ $topping->topping }}</span>
+                                <span class="toppingPrice">(+ ${{ $topping->price }})</span>
                                 @include('modules.field-error', ['field' => 'toppings'])
                                 <div>
                                     <img class="flavorPicture" src={{ $topping->topping_url }}/>
@@ -60,7 +61,7 @@
                 <select class="form-control" name='size_id'>
                     <option value=''>Choose a size...</option>
                     @foreach($sizes as $size)
-                        <option value='{{ $size->id }}' {{ old('size_id') ? 'selected' : '' }}>{{ $size->size }}</option>
+                        <option value='{{ $size->id }}' {{ old('size_id') ? 'selected' : '' }}>{{ $size->size }} (${{ $size->price }})</option>
                     @endforeach
                 </select>
                 @include('modules.field-error', ['field' => 'size_id'])
