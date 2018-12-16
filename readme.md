@@ -36,13 +36,13 @@ __Read__
   + Visit <http://p4.maggiecroc11.me/show> or <http://p4.maggiecroc11.me/cart> to see a listing of all flavors, toppings, and sizes available or all sundae items added to the user's cart.
   
 __Update__
-  + Visit <http://p4.foobooks.me/cart>; choose the Update button next to one of the items (once you've added an item to your cart)
+  + Visit <http://p4.maggiecroc11.me/cart>; choose the Update button next to one of the items (once you've added an item to your cart)
   + Make some edit to form
   + Click *Update Cart*
   + Observe confirmation message
   
 __Delete__
-  + Visit <http://p4.foobooks.me/cart>; click the Remove button next to one of the items (once you've added an item to your cart)
+  + Visit <http://p4.maggiecroc11.me/cart>; click the Remove button next to one of the items (once you've added an item to your cart)
   + Confirm deletion
   + Observe confirmation message
 
