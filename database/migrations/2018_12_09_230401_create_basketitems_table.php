@@ -18,6 +18,7 @@ class CreateBasketitemsTable extends Migration
             $table->timestamps();
 
             $table->integer('quantity');
+            $table->decimal('basket_item_total');
 
         });
     }

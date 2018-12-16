@@ -18,6 +18,7 @@ class CreateOrderitemsTable extends Migration
             $table->timestamps();
 
             $table->integer('quantity');
+            $table->decimal('item_total');
         });
     }
 

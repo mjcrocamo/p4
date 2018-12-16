@@ -18,6 +18,7 @@ class CreateToppingsTable extends Migration
             $table->timestamps();
             $table->string('topping');
             $table->string('topping_url');
+            $table->decimal('price');
         });
     }
 

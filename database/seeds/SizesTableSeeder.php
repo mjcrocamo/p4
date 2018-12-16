@@ -15,10 +15,10 @@ class SizesTableSeeder extends Seeder
     {
         //
         $sizes = [
-            ["Small"],
-            ["Medium"],
-            ["Large"],
-            ["Extra Large"]
+            ["Small",5.00],
+            ["Medium",6.00],
+            ["Large",7.00],
+            ["Extra Large",8.50]
         ];
 
         $count = count($sizes);
@@ -29,6 +29,7 @@ class SizesTableSeeder extends Seeder
             $size->created_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $size->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $size->size = $sizeData[0];
+            $size->price = $sizeData[1];
 
             $size->save();
             $count--;

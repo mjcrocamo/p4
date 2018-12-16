@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
             $table->integer('order_number');
             $table->string('session_id');
+            $table->decimal('order_total');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('ship_address_1');

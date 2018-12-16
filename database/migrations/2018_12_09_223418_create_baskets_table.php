@@ -18,6 +18,7 @@ class CreateBasketsTable extends Migration
             $table->timestamps();
 
             $table->string('session_id');
+            $table->decimal('basket_total');
 
         });
     }

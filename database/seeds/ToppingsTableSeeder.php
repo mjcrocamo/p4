@@ -14,17 +14,17 @@ class ToppingsTableSeeder extends Seeder
     {
         //
         $toppings = [
-            ["Chocolate Sprinkles","/images/toppings/chocolate-sprinkles.jpg"],
-            ["Hot Fudge","/images/toppings/HotFudge.jpg"],
-            ["Rainbow Sprinkles","/images/toppings/rainbow-sprinkles.jpg"],
-            ["Chocolate Syrup","/images/toppings/chocolate-syrup.jpg"],
-            ["Marshmallow","/images/toppings/marshmallow.jpg"],
-            ["Banana","/images/toppings/banana.jpg"],
-            ["Pineapple","/images/toppings/pineapple.jpg"],
-            ["Strawberry","/images/toppings/strawberry.jpg"],
-            ["Reeses Peanut Butter Cups","/images/toppings/reeses.jpg"],
-            ["Whipped Cream","/images/toppings/whipped-cream.jpg"],
-            ["Chocolate Chips","/images/toppings/chocolate-chips.jpg"]
+            ["Chocolate Sprinkles","/images/toppings/chocolate-sprinkles.jpg",0.50],
+            ["Hot Fudge","/images/toppings/HotFudge.jpg",0.50],
+            ["Rainbow Sprinkles","/images/toppings/rainbow-sprinkles.jpg",0.50],
+            ["Chocolate Syrup","/images/toppings/chocolate-syrup.jpg",0.50],
+            ["Marshmallow","/images/toppings/marshmallow.jpg",1.00],
+            ["Banana","/images/toppings/banana.jpg",1.00],
+            ["Pineapple","/images/toppings/pineapple.jpg",1.00],
+            ["Strawberry","/images/toppings/strawberry.jpg",1.00],
+            ["Reeses Peanut Butter Cups","/images/toppings/reeses.jpg",1.00],
+            ["Whipped Cream","/images/toppings/whipped-cream.jpg",0.50],
+            ["Chocolate Chips","/images/toppings/chocolate-chips.jpg",0.50]
             ];
 
         $count = count($toppings);
@@ -36,6 +36,7 @@ class ToppingsTableSeeder extends Seeder
             $topping->updated_at = Carbon\Carbon::now()->subDays($count)->toDateTimeString();
             $topping->topping = $toppingData[0];
             $topping->topping_url = $toppingData[1];
+            $topping->price = $toppingData[2];
 
             $topping->save();
             $count--;

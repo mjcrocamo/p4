@@ -18,6 +18,7 @@ class CreateSizesTable extends Migration
             $table->timestamps();
 
             $table->string('size');
+            $table->decimal('price');
         });
     }
 
