@@ -24,6 +24,6 @@ class Basket extends Model
 
     public static function getBasketObject($session_id)
     {
-        return self::select(['*'])->where('session_id','=', $session_id)->get();
+        return self::where('session_id','=', $session_id)->first();
     }
 }

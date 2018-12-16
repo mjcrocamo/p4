@@ -64,51 +64,37 @@ class IceCreamController extends Controller
 
         $current_basket = Basket::checkBasket($session_id);
 
+        $topping_prices = Topping::getToppingPrices($request->toppings);
+
+        $toppings_price = 0;
+        foreach($topping_prices as $topping) {
+            $toppings_price += $topping->price;
+        }
+
+        $size = Size::find($request->size_id);
+        $size_price = $size->price;
+
+        $item_price = $toppings_price + $size_price;
+
         if (!$current_basket) {
-
-            $topping_prices = Topping::getToppingPrices($request->toppings);
-
-            $toppings_price = 0;
-            foreach($topping_prices as $topping) {
-                $toppings_price += $topping->price;
-            }
-
-            $size = Size::find($request->size_id);
-            $size_price = $size->price;
-
-            $total_price = $toppings_price + $size_price;
 
             $basket = new Basket();
             $basket->session_id = $session_id;
-            $basket->basket_total = $total_price;
+            $basket->basket_total = $item_price;
             $basket->save();
 
             $basket_item = new Basketitem();
             $basket_item->quantity = $request->quantity;
             $basket_item->basket_id = $basket->id;
             $basket_item->size_id = $request->size_id;
-            $basket_item->basket_item_total = $total_price;
+            $basket_item->basket_item_total = $item_price;
             $basket_item->save();
 
             $basket_item->flavors()->sync($request->flavors);
             $basket_item->toppings()->sync($request->toppings);
 
         } else {
-            $current_baskets = Basket::getBasket($session_id);
-            $basket_id = $current_baskets[0]["id"];
-            $basket = Basket::find($basket_id);
-
-            $topping_prices = Topping::getToppingPrices($request->toppings);
-
-            $toppings_price = 0;
-            foreach($topping_prices as $topping) {
-                $toppings_price += $topping->price;
-            }
-
-            $size = Size::find($request->size_id);
-            $size_price = $size->price;
-
-            $item_price = $toppings_price + $size_price;
+            $basket = Basket::getBasketObject($session_id);
 
             $current_total = $basket->basket_total;
             $basket->basket_total = $current_total + $item_price;
@@ -116,7 +102,7 @@ class IceCreamController extends Controller
 
             $basket_item = new Basketitem();
             $basket_item->quantity = $request->quantity;
-            $basket_item->basket_id = $basket_id;
+            $basket_item->basket_id = $basket->id;
             $basket_item->size_id = $request->size_id;
             $basket_item->basket_item_total = $item_price;
             $basket_item->save();
