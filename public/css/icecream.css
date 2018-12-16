@@ -80,7 +80,7 @@ nav {
     border-bottom: 1px solid #c4c3cc;
     padding: 5px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background-color: #eee;
 }
 
@@ -117,26 +117,24 @@ nav ul li a:hover {
 Misc
 -----------------------------------------------------*/
 
-/* Order sundae link */
-.ViewSundae {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 25px;
-    margin-bottom: 10px;
-    color: #547b8c;
-}
-
 /* index picture */
 .indexPic {
     width: 100%;
 }
 
-/* Flavor/Topping heading on show page */
+/* used for the headings on pages like "Your Sundae Cart" */
 
 .pageHeading {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 35px;
+    color: #375777;
+}
+
+.pageHeading2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 25px;
     color: #375777;
 }
 
@@ -153,10 +151,10 @@ Edit page
 /* Quantity text field edit page */
 
 .quantityEdit {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-/* Class for flavor names */
+/* Class for flavor names and other labels on site (like size flavor in basket)*/
 .flavorName {
     font-weight: bold;
     text-transform: uppercase;
@@ -164,12 +162,11 @@ Edit page
     color: #375777;
 }
 
-.flavorDescription {
-    font-style: italic;
+.orderNumber {
+    color: #547b8c;
     font-weight: bold;
-    font-size: 18px;
-    color: #041f42;
-
+    text-transform: uppercase;
+    font-size: 25px;
 }
 
 /* class for choice headings on page, ie Flavors, Toppings etc. */
@@ -180,12 +177,74 @@ Edit page
     color: #375777;
 }
 
-/*----------------------------------------------------
-Typography
------------------------------------------------------*/
+/* flavor descriptions on show, cart, and review order pages */
+.flavorNameReview {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #375777;
+}
 
-a.active:link, a.active:visited, a.active:active, a.active:hover {
-    color: #18bc9c;
+.flavorDescription {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 18px;
+    color: #041f42;
+}
+
+.cartDescription {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 24px;
+    color: #041f42;
+}
+
+.reviewDescription {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 16px;
+    color: #041f42;
+}
+
+.continueEmpty {
+    margin-top: 20px;
+}
+
+.continueOrder {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*------- img manipulation -----------------------------------------*/
+
+.flavorPicReview {
+    display: inline-block;
+    height: 200px;
+    width: 250px;
+}
+
+/* resizing images on the show cart page */
+.flavorPicCart {
+    display: inline-block;
+    height: 350px;
+    width: 400px;
+}
+
+/* resizing images on the show flavors page */
+.flavorPicture {
+    display: inline-block;
+    height: 80%;
+    width: 80%;
+}
+
+.orderPlacedPicture {
+    display: inline-block;
+    height: 200px;
+    width: 250px;
+}
+
+#quantityShow {
+    margin-left: 80px;
 }
 
 /*----------------------------------------------------

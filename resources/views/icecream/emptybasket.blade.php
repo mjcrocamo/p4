@@ -10,9 +10,11 @@
 
 @section('content')
     <section id='hi'>
-        <h2>There are currently no items in your cart</h2>
-        <form method="GET" action="/show">
-            <input type="submit" value="Continue Shopping" class="btn btn-primary">
-        </form>
+        <h2  class="pageHeading2">There are currently no items in your cart</>
+        <div class="continueEmpty">
+            <form method="GET" action="/show">
+                <input type="submit" value="Continue Shopping" class="btn btn-primary">
+            </form>
+        </div>
     </section>
 @endsection

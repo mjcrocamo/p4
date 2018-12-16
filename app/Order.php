@@ -10,4 +10,9 @@ class Order extends Model
     {
         return $this->hasMany('App\Orderitem');
     }
+
+    public static function getOrder($session_id)
+    {
+        return self::where('session_id','=', $session_id)->get();
+    }
 }

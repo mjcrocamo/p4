@@ -13,7 +13,7 @@
         <h2 class="pageHeading">Review your Order</h2>
         <form method="POST" class="form-row" action="/placeOrder/{{ $basket_id }}">
             {{ csrf_field() }}
-            <div class="col">
+            <div class="col-2">
                 <h3 class="choiceHeadings">Shipping Info</h3>
                 <div>
                 <label>
@@ -70,7 +70,7 @@
                 @include('modules.field-error', ['field' => 'shipZipCode'])
                 </div>
             </div>
-            <div class="col">
+            <div class="col-2">
                 <h3 class="choiceHeadings">Billing Info</h3>
                 <div>
                     <label>
@@ -109,7 +109,7 @@
                     @include('modules.field-error', ['field' => 'billZipCode'])
                 </div>
             </div>
-            <div class="col">
+            <div class="col-2">
                 <h3 class="choiceHeadings">Payment</h3>
                 <div>
                 <label>
@@ -130,24 +130,32 @@
                 @include('modules.field-error', ['field' => 'expDate'])
                 </div>
             </div>
-            <div class="col">
-                <h3 class="choiceHeadings">Current Items</h3>
+            <div class="col-6">
+                <h3 class="choiceHeadings">Place Order</h3>
                 <div class="placeOrderbutton">
                     <input type='submit' value='Place Order' class='btn btn-primary'/>
                 </div>
                 <ul>
                     @foreach($basket_items as $basket_item)
+                    <li>
+                        <span class="flavorNameReview">Flavors:</span>
                         @foreach($basket_item->flavors as $flavor)
-                            <li>{{ $flavor["flavor"] }}</li>
+                            <span class="reviewDescription">{{ $flavor->flavor }},</span>
                         @endforeach
+                        <div>
+                            @if(!empty($basket_item->toppings[0]))
+                                <span class="flavorNameReview">Toppings:</span>
+                                @foreach($basket_item->toppings as $topping)
+                                    <span class="reviewDescription">{{ $topping->topping }},</span>
+                                @endforeach
+                            @endif
+                        </div>
+                        <li><span class="flavorNameReview">Size: </span><span class="reviewDescription">{{ $basket_item->size->size }}</span></li>
+                        <li><span class="flavorNameReview">Quantity: </span><span class="reviewDescription">{{ $basket_item->quantity }}</span></li>
                         @foreach($basket_item->flavors as $flavor)
-                            <li><img class="flavorPic" src={{ $flavor["picture_url"] }}/></li>
+                            <img class="flavorPicReview" src={{ $flavor->picture_url }}/>
                         @endforeach
-                        @foreach($basket_item->toppings as $topping)
-                            <li>{{ $topping["topping"] }}</li>
-                        @endforeach
-                        <li>{{ $basket_item->size["size"] }}</li>
-                        <li>{{ $basket_item->quantity }}</li>
+                    </li>
                     @endforeach
                 </ul>
                 <div class="placeOrderbutton">

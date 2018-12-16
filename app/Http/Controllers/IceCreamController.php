@@ -55,7 +55,7 @@ class IceCreamController extends Controller
     public function addCart(Request $request)
     {
         $this->validate($request, [
-            'quantity' => 'required|max:3|numeric',
+            'quantity' => 'required|max:200|numeric|gte:1',
             'size_id' => 'required',
             'flavors' => 'required_without_all'
         ]);
@@ -161,7 +161,7 @@ class IceCreamController extends Controller
     public function update(Request $request, $item_id)
     {
         $this->validate($request, [
-            'quantity' => 'required|max:3|numeric',
+            'quantity' => 'required|max:200|numeric|gte:1',
             'size_id' => 'required',
             'flavors' => 'required_without_all'
         ]);
@@ -268,6 +268,7 @@ class IceCreamController extends Controller
         $session_id = $request->session()->getId();
         $basket = Basket::find($basket_id);
         $basket_items = Basketitem::getBasketItems($basket_id);
+        $basket_items_use = $basket_items;
 
         $order = new Order();
         $order_number = rand(100,100000000) + $order->id;
@@ -325,7 +326,8 @@ class IceCreamController extends Controller
         $basket->delete();
 
         return view('icecream.order_placed')->with([
-            'order_number' => $order_number
+            'order_number' => $order_number,
+            'basket_items' => $basket_items_use
             ]);
     }
 

@@ -28,4 +28,9 @@ class Orderitem extends Model
         # withTimestamps will ensure the pivot table has its created_at/updated_at fields automatically maintained
         return $this->belongsToMany('App\Topping')->withTimestamps();
     }
+
+    public static function getOrderItems($order_id)
+    {
+        return self::where("order_id","=", $order_id)->with(['size','flavors','toppings'])->get();
+    }
 }
