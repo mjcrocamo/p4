@@ -65,6 +65,7 @@ class IceCreamController extends Controller
         $current_basket = Basket::checkBasket($session_id);
 
         $topping_prices = Topping::getToppingPrices($request->toppings);
+        $item_quantity = $request->quantity;
 
         $toppings_price = 0;
         foreach($topping_prices as $topping) {
@@ -74,7 +75,7 @@ class IceCreamController extends Controller
         $size = Size::find($request->size_id);
         $size_price = $size->price;
 
-        $item_price = $toppings_price + $size_price;
+        $item_price = ($toppings_price + $size_price) * $item_quantity;
 
         if (!$current_basket) {
 
@@ -84,7 +85,7 @@ class IceCreamController extends Controller
             $basket->save();
 
             $basket_item = new Basketitem();
-            $basket_item->quantity = $request->quantity;
+            $basket_item->quantity = $item_quantity;
             $basket_item->basket_id = $basket->id;
             $basket_item->size_id = $request->size_id;
             $basket_item->basket_item_total = $item_price;
@@ -189,6 +190,7 @@ class IceCreamController extends Controller
         $basket = Basket::getBasketObject($session_id);
 
         $topping_prices = Topping::getToppingPrices($request->toppings);
+        $item_quantity = $request->quantity;
 
         $toppings_price = 0;
         foreach($topping_prices as $topping) {
@@ -198,7 +200,7 @@ class IceCreamController extends Controller
         $size = Size::find($request->size_id);
         $size_price = $size->price;
 
-        $item_price = $toppings_price + $size_price;
+        $item_price = ($toppings_price + $size_price) * $item_quantity;
 
         $basket_item = Basketitem::find($item_id);
 
@@ -322,11 +324,13 @@ class IceCreamController extends Controller
         $basket = Basket::find($basket_id);
         $basket_items = Basketitem::getBasketItems($basket_id);
         $basket_items_use = $basket_items;
+        $basket_use = $basket;
 
         $order = new Order();
         $order_number = rand(100,100000000) + $order->id;
         $order->order_number = $order_number;
         $order->session_id = $session_id;
+        $order->order_total = $basket->basket_total;
         $order->first_name = $request->firstName;
         $order->last_name = $request->lastName;
         $order->ship_address_1 = $request->shipAddress1;
@@ -355,6 +359,7 @@ class IceCreamController extends Controller
             $order_item->order_id = $order->id;
             $order_item->quantity = $basket_item->quantity;
             $order_item->size_id = $basket_item->size->id;
+            $order_item->item_total = $basket_item->basket_item_total;
 
             $order_item->save();
 
@@ -380,7 +385,8 @@ class IceCreamController extends Controller
 
         return view('icecream.order_placed')->with([
             'order_number' => $order_number,
-            'basket_items' => $basket_items_use
+            'basket_items' => $basket_items_use,
+            'basket' => $basket_use
             ]);
     }
 

@@ -12,6 +12,7 @@
     <section id='allFlavors'>
         <h2 class="pageHeading">Thanks for your order!</h2>
         <h4 class="orderNumber">Order Number: {{ $order_number }}</h4>
+        <h2 class="orderNumber">Order Total: ${{ $basket->basket_total }}</h2>
         <div class="continueOrder">
             <form method="GET" action="/">
                 <input type='submit' value='Continue Shopping' class='btn btn-primary'>
@@ -34,8 +35,13 @@
                                 @endforeach
                             @endif
                         </div>
-                        <li><span class="flavorName">Size: </span><span class="cartDescription">{{ $basket_item->size->size }}</span></li>
-                        <li><span class="flavorName">Quantity: </span><span class="cartDescription">{{ $basket_item->quantity }}</span></li>
+                    <li>
+                        <span class="flavorName">Size: </span><span class="cartDescription">{{ $basket_item->size->size }}</span>
+                        <span class="quantityCart">Quantity: </span><span class="cartDescription" >{{ $basket_item->quantity }}</span>
+                    </li>
+                    <li>
+                        <span class="flavorName">Price: </span><span class="cartDescription">${{ $basket_item->basket_item_total }}</span>
+                    </li>
                         @foreach($basket_item->flavors as $flavor)
                             <img class="flavorPicCart" src={{ $flavor["picture_url"] }}/>
                         @endforeach
