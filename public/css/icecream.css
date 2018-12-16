@@ -24,7 +24,10 @@ body {
     text-align: center;
 
     /* sticky footer - match footer height */
-    margin-bottom: 60px;
+    margin-bottom: 20px;
+    position: relative;
+    min-height: 100%;
+    max-width: 100%;
 }
 
 section#main {
@@ -44,8 +47,9 @@ footer {
     background-color: #eee;
 
     /* sticky footer */
-    position: absolute;
     bottom: 0;
+    position: relative;
+
     width: 100%;
     line-height: 60px; /* Vertically center the text there */
 }
@@ -79,7 +83,7 @@ nav {
     border-top: 1px solid #c4c3cc;
     border-bottom: 1px solid #c4c3cc;
     padding: 5px;
-    margin-top: 10px;
+    margin-top: -25px;
     margin-bottom: 20px;
     background-color: #eee;
 }
@@ -114,13 +118,8 @@ nav ul li a:hover {
 }
 
 /*----------------------------------------------------
-Misc
+Some page headings
 -----------------------------------------------------*/
-
-/* index picture */
-.indexPic {
-    width: 100%;
-}
 
 /* used for the headings on pages like "Your Sundae Cart" */
 
@@ -138,8 +137,16 @@ Misc
     color: #375777;
 }
 
+/* class for choice headings on page, ie Flavors, Toppings etc. */
+.choiceHeadings {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #375777;
+}
+
 /*----------------------------------------------------
-Edit page
+buttons
 -----------------------------------------------------*/
 
 /* Update button edit page */
@@ -148,11 +155,41 @@ Edit page
     margin-top: 15px;
 }
 
+.continueEmpty {
+    margin-top: 20px;
+}
+
+.continueOrder {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Updatebutton {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.deletebutton {
+}
+
+.checkoutButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.continueShoppingButton {
+    margin-bottom: 20px;
+}
+
 /* Quantity text field edit page */
 
 .quantityEdit {
     margin-bottom: 10px;
 }
+
+/*----------------------------------------------------
+Text
+-----------------------------------------------------*/
 
 /* Class for flavor names and other labels on site (like size flavor in basket)*/
 .flavorName {
@@ -169,13 +206,6 @@ Edit page
     font-size: 25px;
 }
 
-/* class for choice headings on page, ie Flavors, Toppings etc. */
-.choiceHeadings {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 30px;
-    color: #375777;
-}
 
 /* flavor descriptions on show, cart, and review order pages */
 .flavorNameReview {
@@ -205,22 +235,25 @@ Edit page
     font-size: 16px;
     color: #041f42;
 }
+/*------------------------------------------------
+  Image manipulation
+/*------------------------------------------------*/
 
-.continueEmpty {
-    margin-top: 20px;
-}
-
-.continueOrder {
-    margin-top: 20px;
+.titlePic {
+    height: 80px;
+    width: 40px;
+    padding-bottom: 20px;
     margin-bottom: 20px;
 }
-
-/*------- img manipulation -----------------------------------------*/
-
 .flavorPicReview {
     display: inline-block;
     height: 200px;
     width: 250px;
+}
+
+/* index picture */
+.indexPic {
+    width: 100%;
 }
 
 /* resizing images on the show cart page */

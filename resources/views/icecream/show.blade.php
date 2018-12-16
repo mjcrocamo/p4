@@ -21,12 +21,12 @@
                                  <input {{ (in_array($flavor->id, old('flavors', []) )) ? 'checked' : '' }} type="checkbox" name='flavors[]' value={{ $flavor->id }}>
 
                                  <span class="flavorName">{{ $flavor->flavor }}</span>
-                                 <div>
-                                     <span class="flavorDescription">{{ $flavor->description }}</span>
-                                 </div>
                                  @include('modules.field-error', ['field' => 'flavors'])
                                  <div>
                                      <img class="flavorPicture" src={{ $flavor->picture_url }}/>
+                                 </div>
+                                 <div>
+                                     <span class="flavorDescription">{{ $flavor->description }}</span>
                                  </div>
                              </label>
                          </li>

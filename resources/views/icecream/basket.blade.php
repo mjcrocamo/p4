@@ -22,6 +22,7 @@
             </form>
         </div>
         <div class="flavor">
+            <h2 class="choiceHeadings">Current Items</h2>
             <ul>
                 @foreach($basket_items as $basket_item)
                 <li>

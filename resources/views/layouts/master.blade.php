@@ -25,7 +25,8 @@
 @endif
 
 <header>
-    <h1 class="title">The Sundae King</h1>
+    <img class="titlePic" src="/images/small_pic_flavors/sprinkles.png"/>
+    <span class="title">The Sundae King</span>
     @include('modules.nav')
 </header>
 
